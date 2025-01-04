@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+#svg-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
