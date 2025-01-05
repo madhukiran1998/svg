@@ -30,6 +30,16 @@ function App() {
     }
   };
 
+  const handleDownload = () => {
+    if (!svgContent) return;
+
+    const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'converted-logo.svg';
+    link.click();
+  };
+
   useEffect(() => {
     if (svgContent && svgContainerRef.current) {
       svgContainerRef.current.innerHTML = svgContent;
@@ -68,6 +78,9 @@ function App() {
         ref={svgContainerRef} 
         style={{ width: '100%', height: '400px', border: '1px solid #ccc', marginTop: '20px' }}
       ></div>
+          <button onClick={handleDownload} style={{ marginTop: '20px' }}>
+            Download SVG
+          </button>
     </div>
   );
 }
